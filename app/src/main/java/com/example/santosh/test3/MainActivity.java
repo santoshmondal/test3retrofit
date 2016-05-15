@@ -14,6 +14,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.jackson.JacksonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v.getId() == button.getId()) {
-            Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.0.106:3000").addConverterFactory(ScalarsConverterFactory.create()).build();
+            Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.0.106:3000").addConverterFactory(JacksonConverterFactory.create()).build();
             AppApi appApi = retrofit.create(AppApi.class);
 
             appApi.hello().enqueue(new Callback<SamplePojo>() {

@@ -7,6 +7,16 @@ public class SamplePojo {
     private int id;
     private String name;
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    private String title;
+
 
     public String getName() {
         return name;
